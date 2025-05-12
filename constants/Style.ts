@@ -1,7 +1,10 @@
 import { StyleSheet } from "react-native";
-import Colors from "@/constants/Colors";
+import { getThemeColors } from "@/constants/Colors";
+import { useContext } from "react";
+import { ThemeContext } from "@/app/context/ThemeContext";
 
-const colors = Colors.dark;
+const { theme } = useContext(ThemeContext);
+const colors = getThemeColors(theme);
 
 export const styles = StyleSheet.create({
   container: {
@@ -11,7 +14,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
   },
   text: {
-    color: Colors.text,
+    color: colors.text,
   },
   button: {
     fontSize: 20,
