@@ -2,8 +2,11 @@ name: Android App APK Build
 
 on:
   push:
-    branches:
-      - new-features
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+    branches: [main]
+
 jobs:
   build:
     runs-on: ubuntu-latest
