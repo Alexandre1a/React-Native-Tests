@@ -1,4 +1,4 @@
-import { View, Text, Switch, StyleSheet } from "react-native";
+import { View, Text, Switch } from "react-native";
 import { useContext } from "react";
 import { ThemeContext } from "@/app/context/ThemeContext";
 import { getThemeColors } from "@/constants/Colors";

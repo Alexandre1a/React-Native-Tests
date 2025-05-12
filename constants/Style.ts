@@ -13,11 +13,8 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  text: {
-    color: colors.text,
-  },
-  button: {
-    fontSize: 20,
+  label: {
+    color: colors.label,
   },
   imageContainer: {
     flex: 1,
@@ -31,5 +28,28 @@ export const styles = StyleSheet.create({
     width: 320,
     height: 440,
     borderRadius: 18,
+  },
+  buttonContainer: {
+    width: 320,
+    height: 68,
+    marginHorizontal: 20,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 3,
+  },
+  button: {
+    borderRadius: 10,
+    width: "100%",
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+  },
+  buttonIcon: {
+    paddingRight: 8,
+  },
+  buttonLabel: {
+    color: colors.label,
+    fontSize: 16,
   },
 });

@@ -7,6 +7,8 @@ export const Colors = {
     secondaryText: "#666666", // Gris foncé
     accent: "#34C759", // Vert
     error: "#FF3B30", // Rouge
+    background_inverted: "#000000",
+    label_inverted: "#FFFFFF",
   },
   dark: {
     // Couleurs de base pour le thème sombre
@@ -16,6 +18,8 @@ export const Colors = {
     secondaryText: "#8E8E93", // Gris
     accent: "#30D158", // Vert clair
     error: "#FF453A", // Rouge vif
+    background_inverted: "#F2F2F7",
+    label_inverted: "#000000",
   },
 };
 export type ColorTheme = "light" | "dark";

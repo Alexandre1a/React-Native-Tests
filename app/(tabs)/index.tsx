@@ -1,11 +1,8 @@
 // Normal Imports
-import { Text, View, StyleSheet } from "react-native";
-import { useState } from "react";
-import { useContext } from "react";
+import { View } from "react-native";
+import { useState, useContext } from "react";
 
 // Expo Imports
-import { Link } from "expo-router";
-import { Image } from "expo-image";
 import * as ImagePicker from "expo-image-picker";
 
 // Custom Modules Imports
@@ -18,7 +15,7 @@ import { styles } from "@/constants/Style";
 const PlaceholderImage = require("@/assets/images/background-image.png");
 
 export default function Index() {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const colors = getThemeColors(theme);
 
   const [selectedImage, setSelectedImage] = useState<string | undefined>(
@@ -48,7 +45,7 @@ export default function Index() {
       </View>
       <View style={styles.footerContainer}>
         <Button
-          theme="primary"
+          button_theme="primary"
           label="Choose a photo"
           onPress={pickImageAsync}
         />
