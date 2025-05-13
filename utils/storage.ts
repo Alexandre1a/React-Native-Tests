@@ -1,20 +1,22 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Todo } from "@/components/TodoElement";
 
-const TODO_KEY = "@todo_list";
+const STORAGE_KEY = "@my_todos";
 
-export async function loadTodos(): Promise<string[]> {
+export async function loadTodos(): Promise<Todo[] | null> {
   try {
-    const json = await AsyncStorage.getItem(TODO_KEY);
-    return json ? JSON.parse(json) : [];
-  } catch {
-    return [];
+    const json = await AsyncStorage.getItem(STORAGE_KEY);
+    return json ? JSON.parse(json) : null;
+  } catch (e) {
+    console.error("Load failed:", e);
+    return null;
   }
 }
 
-export async function saveTodos(todos: string[]): Promise<void> {
+export async function saveTodos(todos: Todo[]): Promise<void> {
   try {
-    await AsyncStorage.setItem(TODO_KEY, JSON.stringify(todos));
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
   } catch (e) {
-    console.error("Failed to save todos", e);
+    console.error("Save failed:", e);
   }
 }
