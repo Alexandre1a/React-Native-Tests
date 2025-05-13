@@ -17,12 +17,14 @@ import * as Crypto from "expo-crypto";
 import Button from "@/components/Button";
 import { ThemeContext } from "@/app/context/ThemeContext";
 import { getThemeColors } from "@/constants/Colors";
-// import { styles } from "@/constants/Style";
+import { styles } from "@/constants/Style";
 import { loadTodos, saveTodos } from "@/utils/storage";
 import TodoElement, { Todo } from "@/components/TodoElement";
 // import { Background } from "@react-navigation/elements";
 
 export default function Index() {
+  const { theme } = useContext(ThemeContext);
+  const colors = getThemeColors(theme);
   const [todos, setTodos] = useState<Todo[]>([]);
   const [input, setInput] = useState("");
 
@@ -50,10 +52,13 @@ export default function Index() {
 
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={styles.safeArea} edges={["left", "right", "bottom"]}>
+      <SafeAreaView
+        style={[styles.safeArea, { backgroundColor: colors.background }]}
+        edges={["left", "right", "bottom"]}
+      >
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : undefined}
-          style={styles.container}
+          style={styles.todoContainer}
         >
           <View style={styles.inputRow}>
             <View style={styles.inputContainer}>
@@ -84,36 +89,3 @@ export default function Index() {
     </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: "#fff",
-  },
-  container: {
-    flex: 1,
-    paddingHorizontal: 16,
-    paddingTop: 8,
-  },
-  inputRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 12,
-  },
-  inputContainer: {
-    flex: 7,
-    marginRight: 8,
-  },
-  input: {
-    flex: 1,
-    minHeight: 40,
-    borderWidth: 1,
-    borderRadius: 4,
-    padding: 8,
-  },
-  buttonContainer: {
-    flex: 3,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});

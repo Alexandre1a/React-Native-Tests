@@ -23,12 +23,11 @@ export const styles = StyleSheet.create({
   },
   safeArea: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: colors.background,
   },
   inputRow: {
     flexDirection: "row", // horizontal layout :contentReference[oaicite:0]{index=0}
-    alignItems: "center", // vertically center children :contentReference[oaicite:1]{index=1}
-    paddingHorizontal: 16, // gap from screen edges :contentReference[oaicite:2]{index=2}
+    alignItems: "baseline", // vertically center children :contentReference[oaicite:1]{index=1}
     marginBottom: 12,
   },
   inputContainer: {
@@ -41,12 +40,11 @@ export const styles = StyleSheet.create({
     alignItems: "center", // horizontal centering :contentReference[oaicite:7]{index=7}
   },
   input: {
-    flex: 1, // fill inputContainer :contentReference[oaicite:8]{index=8}
-    minHeight: 40, // ensure visible height :contentReference[oaicite:9]{index=9}
+    flex: 7,
+    minHeight: 40,
     borderWidth: 1,
-    padding: 8, // show placeholder text properly :contentReference[oaicite:10]{index=10}
-    includeFontPadding: false, // remove default Android font padding :contentReference[oaicite:11]{index=11}
-    textAlignVertical: "top", // align placeholder at top on Android :contentReference[oaicite:12]{index=12}
+    borderRadius: 4,
+    padding: 8,
   },
   todoItem: {
     flexDirection: "row",
@@ -78,5 +76,17 @@ export const styles = StyleSheet.create({
   buttonLabel: {
     color: colors.label,
     fontSize: 16,
+  },
+  row: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: 10,
+    borderBottomWidth: 1,
+    borderColor: colors.accent,
+  },
+  title: {
+    flex: 1,
+    flexWrap: "wrap",
+    marginRight: 8,
   },
 });

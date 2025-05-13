@@ -1,5 +1,9 @@
-import React from "react";
-import { View, Text, Button, StyleSheet } from "react-native";
+import { View, Text } from "react-native";
+import { useContext, React } from "react";
+import Button from "@/components/Button";
+import { ThemeContext } from "@/app/context/ThemeContext";
+import { getThemeColors } from "@/constants/Colors";
+import { styles } from "@/constants/Style";
 
 export type Todo = {
   id: string;
@@ -12,25 +16,12 @@ type Props = {
 };
 
 export default function TodoElement({ todo, onDelete }: Props) {
+  const { theme } = useContext(ThemeContext);
+  const colors = getThemeColors(theme);
   return (
     <View style={styles.row}>
-      <Text style={styles.title}>{todo.title}</Text>
-      <Button title="Delete" onPress={() => onDelete(todo.id)} />
+      <Text style={[styles.title, { color: colors.label }]}>{todo.title}</Text>
+      <Button label="Delete" onPress={() => onDelete(todo.id)} />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  row: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingVertical: 10,
-    borderBottomWidth: 1,
-    borderColor: "#ccc",
-  },
-  title: {
-    flex: 1,
-    flexWrap: "wrap",
-    marginRight: 8,
-  },
-});
