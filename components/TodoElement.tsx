@@ -1,11 +1,10 @@
 import React from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
 
-export interface Todo {
+export type Todo = {
   id: string;
   title: string;
-  completed: boolean;
-}
+};
 
 type Props = {
   todo: Todo;
@@ -14,20 +13,24 @@ type Props = {
 
 export default function TodoElement({ todo, onDelete }: Props) {
   return (
-    <View style={styles.item}>
-      <Text style={styles.text}>{todo.title}</Text>
+    <View style={styles.row}>
+      <Text style={styles.title}>{todo.title}</Text>
       <Button title="Delete" onPress={() => onDelete(todo.id)} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  item: {
+  row: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    alignItems: "center",
     paddingVertical: 10,
     borderBottomWidth: 1,
-    flexWrap: "wrap",
+    borderColor: "#ccc",
   },
-  text: { fontSize: 16 },
+  title: {
+    flex: 1,
+    flexWrap: "wrap",
+    marginRight: 8,
+  },
 });

@@ -15,32 +15,38 @@ export const styles = StyleSheet.create({
   },
   todoContainer: {
     flex: 1,
-    padding: 16,
-    margin: 2,
+    paddingHorizontal: 16,
+    paddingTop: 8, // small extra gap below header :contentReference[oaicite:2]{index=2}
   },
   label: {
     color: colors.label,
   },
+  safeArea: {
+    flex: 1,
+    backgroundColor: "#fff",
+  },
   inputRow: {
     flexDirection: "row", // horizontal layout :contentReference[oaicite:0]{index=0}
-    alignItems: "center", // vertical centering of children :contentReference[oaicite:1]{index=1}
-    paddingHorizontal: 16, // gap on left and right :contentReference[oaicite:2]{index=2}
+    alignItems: "center", // vertically center children :contentReference[oaicite:1]{index=1}
+    paddingHorizontal: 16, // gap from screen edges :contentReference[oaicite:2]{index=2}
     marginBottom: 12,
   },
   inputContainer: {
-    flex: 7, // takes 70% of the row :contentReference[oaicite:3]{index=3}
-    marginRight: 8, // small gap between input & button :contentReference[oaicite:4]{index=4}
+    flex: 7, // 70% width :contentReference[oaicite:3]{index=3}
+    marginRight: 8, // gap before button :contentReference[oaicite:4]{index=4}
   },
   buttonContainer: {
-    flex: 3, // takes remaining 30% :contentReference[oaicite:5]{index=5}
-    justifyContent: "center", // center button vertically :contentReference[oaicite:6]{index=6}
-    alignItems: "center", // center button horizontally :contentReference[oaicite:7]{index=7}
+    flex: 3, // 30% width :contentReference[oaicite:5]{index=5}
+    justifyContent: "center", // vertical centering :contentReference[oaicite:6]{index=6}
+    alignItems: "center", // horizontal centering :contentReference[oaicite:7]{index=7}
   },
   input: {
-    flex: 1, // fill its container :contentReference[oaicite:8]{index=8}
+    flex: 1, // fill inputContainer :contentReference[oaicite:8]{index=8}
+    minHeight: 40, // ensure visible height :contentReference[oaicite:9]{index=9}
     borderWidth: 1,
-    padding: 8, // ensures placeholder is visible :contentReference[oaicite:9]{index=9}
-    textAlignVertical: "top", // multiline placeholder alignment on Android :contentReference[oaicite:10]{index=10}
+    padding: 8, // show placeholder text properly :contentReference[oaicite:10]{index=10}
+    includeFontPadding: false, // remove default Android font padding :contentReference[oaicite:11]{index=11}
+    textAlignVertical: "top", // align placeholder at top on Android :contentReference[oaicite:12]{index=12}
   },
   todoItem: {
     flexDirection: "row",
